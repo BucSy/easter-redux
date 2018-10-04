@@ -7,6 +7,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import Settings from './components/Settings';
 import Bucket from './components/Bucket';
 import Favourites from './components/Favourites';
+import Contact from './components/Contact';
 
 import Home from './components/Home';
 
@@ -14,7 +15,8 @@ const BaseNavigation = TabNavigator({
   Home: { screen: Home },
   Settings: { screen: Settings },
   Favourites: { screen: Favourites },
-  Bucket: { screen: Bucket }
+  Bucket: { screen: Bucket },
+  Contact: { screen: Contact },
 },
 {
   navigationOptions: ({ navigation }) => ({
@@ -33,6 +35,9 @@ const BaseNavigation = TabNavigator({
       } else if (routeName === 'Bucket') {
         iconName = `bucket`;
         return <Entypo name={iconName} size={25} color={tintColor} />;
+      } else if (routeName === 'Contact') {
+        iconName = `ios-contact`;
+        return <Ionicons name={iconName} size={25} color={tintColor} />;
       }
     },
   }),
