@@ -10,7 +10,6 @@ function sendData(type, text) {
 }
 
 function* sendDataToSrv (action) {
-  console.log(action);
     try {
       const data = yield call(sendData, action.msgType, action.msg)
       yield put({ type: SEND_DATA_SUCCESS })

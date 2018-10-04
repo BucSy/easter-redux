@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 class Contact extends Component {
     render() {
-        console.log(this.props.send);
         return(
             <View style={{backgroundColor: 'rgba(255,255,255,1.0)', flex: 1 }}>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
