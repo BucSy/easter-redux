@@ -11,8 +11,6 @@ const initalizeState = Immutable({
     favData: [],
 });
 
-console.log(isImmutable(initalizeState));
-
 export default (state = initalizeState, action) => {
     switch(action.type) {
         case GETDATA:

@@ -5,22 +5,7 @@ import { getFavData, deleteFavData } from '../actions/index';
 import { connect } from 'react-redux';
 
 class Favourites extends Component {
-
-    componentWillMount() {  
-        AsyncStorage.getItem('key').then(JSON.parse).then(items => this.props.getFavData(items));
-    }
     
-    deleteItemFromList(item){
-        index = this.props.data.favData.indexOf(item);
-        AsyncStorage
-            .getItem('key')
-            .then(favs => {
-                favs = favs === null ? [] : JSON.parse(favs)
-                favs.splice(index, 1);
-                AsyncStorage.setItem('key', JSON.stringify(favs))
-        }).then(this.props.deleteFavData(index));
-    }
-
     shareItemFromList(item) {
         Share.share({
             message: item,
@@ -50,7 +35,7 @@ class Favourites extends Component {
                                             </TouchableOpacity>
                                         </View>
                                         <View style={styles.LeftIcon}>
-                                            <TouchableOpacity onPress={() => this.deleteItemFromList(item)}>
+                                            <TouchableOpacity onPress={() => this.props.deleteFavData(this.props.data.favData.indexOf(item))}>
                                                 <Icon name="delete" size={18} color={'#E53935'}>
                                                     <Text>Törlés</Text>
                                                 </Icon>
