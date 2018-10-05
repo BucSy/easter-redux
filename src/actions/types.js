@@ -10,3 +10,4 @@ export const SEND_DATA_SUCCESS = 'SEND_DATA_SUCCESS';
 export const SEND_DATA_FAILURE = 'SEND_DATA_FAILURE';
 export const SET_MSG_TYPE = "SET_MSG_TYPE";
 export const SET_MSG_TEXT = "SET_MSG_TEXT";
+export const SET_ERROR_TO_NULL = "SET_ERROR_TO_NULL";

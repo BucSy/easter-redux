@@ -11,12 +11,18 @@ function sendData(type, text) {
 }
 
 function* sendDataToSrv (action) {
+  if (action.msgType === null) {
+    yield put({ type: SEND_DATA_FAILURE, payload: "Kérlek adj meg üzenet típust!"});
+  } else if (action.msg === null) {
+    yield put({ type: SEND_DATA_FAILURE, payload: "Kérlek ne hagyd üresen az üzenet mezőt!"});
+  } else {
     try {
       const data = yield call(sendData, action.msgType, action.msg)
       yield put({ type: SEND_DATA_SUCCESS })
     } catch (e) {
       yield put({ type: SEND_DATA_FAILURE })
     }
+  }
 }
   
 function* dataSaga () {

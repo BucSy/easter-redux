@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
-import { View, Text, Picker, TextInput, ActivityIndicator } from 'react-native';
+import { View, Text, Picker, TextInput, ActivityIndicator, Modal, TouchableHighlight } from 'react-native';
 import { Button } from 'react-native-elements';
-import { sendDataToSrv, setMsgText, setMsgType } from '../actions/index';
+import { sendDataToSrv, setMsgText, setMsgType, setErrorNull } from '../actions/index';
 import { connect } from 'react-redux';
 
 class Contact extends Component {
     render() {
         return(
             <View style={{backgroundColor: 'rgba(255,255,255,1.0)', flex: 1 }}>
+                <Modal
+                    animationType="fade"
+                    visible={this.props.send.error}
+                    onRequestClose={() => this.props.setErrorNull()}>
+                    <View style={{justifyContent: "center", alignItems: "center"}}>
+                        <Text style={{marginTop: 20, fontSize: 20}}>Hiba: {this.props.send.errorText}</Text>
+                        <TouchableHighlight
+                            onPress={() => {
+                                this.props.setErrorNull();
+                            }}>
+                            <Text style={{marginTop: 20, color: '#E53935'}}>Bezárás</Text>
+                        </TouchableHighlight>
+                    </View>
+                </Modal>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={{fontSize: 20, color: '#E53935' }}>Kapcsolat</Text>    
                 </View>
@@ -60,4 +74,4 @@ function mapStateToProps(state) {
     };
 }
   
-export default connect(mapStateToProps, {sendDataToSrv, setMsgText, setMsgType})(Contact);
+export default connect(mapStateToProps, {sendDataToSrv, setMsgText, setMsgType, setErrorNull})(Contact);

@@ -10,7 +10,8 @@ import {
     SEND_DATA_REQUEST,
     SEND_DATA_FAILURE,
     SET_MSG_TYPE,
-    SET_MSG_TEXT
+    SET_MSG_TEXT,
+    SET_ERROR_TO_NULL
  } from './types';
 
 export const getData = (_data) => {
@@ -82,4 +83,10 @@ export const setMsgText = (msgText) => {
         type: SET_MSG_TEXT,
         _msgText: msgText
     };
+}
+
+export const setErrorNull = () => {
+    return {
+        type: SET_ERROR_TO_NULL
+    }
 }
