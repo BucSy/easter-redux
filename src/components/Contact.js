@@ -46,7 +46,7 @@ class Contact extends Component {
                     }}
                 />
                 </View>
-                <View style={{margintop: 30}}>
+                <View style={{marginTop: 30}}>
                     <ActivityIndicator size="large" color="#E53935" style={{opacity: this.props.send.loading ? 1.0 : 0.0}} />
                 </View>
             </View>

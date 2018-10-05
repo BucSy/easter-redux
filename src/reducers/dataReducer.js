@@ -4,11 +4,14 @@ import {
     NEW_FAVDATA,
     DEL_FAVDATA
  } from '../actions/types';
+import Immutable, { isImmutable } from 'seamless-immutable';
 
-const initalizeState = {
+const initalizeState = Immutable({
     data: [],
     favData: [],
-}
+});
+
+console.log(isImmutable(initalizeState));
 
 export default (state = initalizeState, action) => {
     switch(action.type) {

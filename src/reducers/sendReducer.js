@@ -5,14 +5,15 @@ import {
     SET_MSG_TYPE,
     SET_MSG_TEXT
  } from '../actions/types';
+import Immutable, { isImmutable } from 'seamless-immutable';
 
-const initalizeState = {
+const initalizeState = Immutable({
     loading: false,
     error: false,
     msgType: "hiba",
     msgText: null,
     editable: true,
-};
+});
 
 export default (state = initalizeState, action) => {
     switch(action.type) {

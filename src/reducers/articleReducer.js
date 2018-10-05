@@ -2,11 +2,12 @@ import {
     SET_ARTICLE_TEXT,
     SET_ARTICLE_KATEG
  } from '../actions/types';
+import Immutable, { isImmutable } from 'seamless-immutable';
 
-const initalizeState = {
+const initalizeState = Immutable({
     articleText: '-',
     articleKateg: '-'
-}
+});
 
 export default (state = initalizeState, action) => {
     switch(action.type) {
