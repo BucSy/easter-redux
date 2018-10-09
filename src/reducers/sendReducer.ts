@@ -8,16 +8,25 @@ import {
  } from '../actions/types';
 import Immutable, { isImmutable } from 'seamless-immutable';
 
-const initalizeState = Immutable({
+export interface sendState {
+    readonly loading: boolean
+    readonly error: boolean
+    readonly errorText: string
+    readonly msgType: string
+    readonly msgText: string
+    readonly editable: boolean
+}
+
+const initialState: sendState = Immutable({
     loading: false,
     error: false,
-    errorText: null,
+    errorText: "",
     msgType: "hiba",
-    msgText: null,
+    msgText: "",
     editable: true,
 });
 
-export default (state = initalizeState, action) => {
+export default (state = initialState, action: {type: string, _msgType: string, _msgText: string, payload: string}) => {
     switch(action.type) {
         case SEND_DATA_REQUEST:
             return {...state, loading: true, error: false, editable: false, errorText: null}

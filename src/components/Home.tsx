@@ -15,20 +15,33 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 import { getData, setArticleText, setArticleKateg, getFavData, newFavData } from '../actions/index';
 import { connect } from 'react-redux';
+import { articleState } from '../reducers/articleReducer';
+import { dataState } from '../reducers/dataReducer';
+import { selectedItemState } from '../reducers/selectedItemReducer';
 
-class Home extends Component {
+interface HomeProps {
+  setArticleKateg: typeof setArticleKateg;
+  setArticleText: typeof setArticleText;
+  newFavData: typeof newFavData;
+  getData: typeof getData;
+  data: dataState;
+  article: articleState;
+  items: selectedItemState;
+}
+
+class Home extends Component<HomeProps> {
 
   onLikePressed = () => {
     AsyncStorage
       .getItem('key')
-      .then(favs => {
-        favs = favs === null ? [] : JSON.parse(favs)
-        if( favs.indexOf(this.props.article.articleText) > -1 ) {
+      .then((favs: any) => {
+        let _favs: string[] = favs === null ? [] : JSON.parse(favs)
+        if( _favs.indexOf(this.props.article.articleText) > -1 ) {
           alert('Már a kedvenceid között van.');
         } else {
-          favs.push(this.props.article.articleText);
+          _favs.push(this.props.article.articleText);
           this.props.newFavData(this.props.article.articleText);
-          AsyncStorage.setItem('key', JSON.stringify(favs))
+          AsyncStorage.setItem('key', JSON.stringify(_favs))
         }
     });
   }
@@ -53,7 +66,7 @@ class Home extends Component {
     if (this.props.data.data !== null){
       switch(this.props.items.selectedItem) {
         case 'itemOne':
-         szam = Math.floor(Math.random() * (36 - 0 + 1)) + 0;
+         let szam = Math.floor(Math.random() * (36 - 0 + 1)) + 0;
          this.props.setArticleKateg(this.props.data.data[szam].kateg);
          this.props.setArticleText(this.props.data.data[szam].vers);
          break;
@@ -218,7 +231,7 @@ const styles = StyleSheet.create({
   }
 });
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
   return {
     data: state.dataR,
     article: state.article,

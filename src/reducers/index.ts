@@ -6,7 +6,6 @@ import selectedItemReducer from './selectedItemReducer';
 import sendReducer from './sendReducer';
 
 export default combineReducers({
-  navigation: (state, action) => BaseNavigation.router.getStateForAction(action, state),
   state: (state = {}) => state,
   dataR: dataReducer,
   article: articleReducer,

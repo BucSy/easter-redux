@@ -1,5 +1,6 @@
-import { TabNavigator, TabBarBottom } from 'react-navigation';
-import React, { Component } from 'react';
+import { TabNavigator, TabBarBottom, NavigationScreenProps, TabNavigatorConfig } from 'react-navigation';
+import React from 'react';
+import { Component } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Foundation from 'react-native-vector-icons/Foundation'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -8,8 +9,12 @@ import Settings from './components/Settings';
 import Bucket from './components/Bucket';
 import Favourites from './components/Favourites';
 import Contact from './components/Contact';
-
 import Home from './components/Home';
+
+interface tabBar {
+  focused: boolean;
+  tintColor: string;
+}
 
 const BaseNavigation = TabNavigator({
   Home: { screen: Home },
@@ -19,8 +24,8 @@ const BaseNavigation = TabNavigator({
   Contact: { screen: Contact },
 },
 {
-  navigationOptions: ({ navigation }) => ({
-    tabBarIcon: ({ focused, tintColor }) => {
+  navigationOptions: ({ navigation }): any => ({
+    tabBarIcon: ({ focused, tintColor }: tabBar) => {
       const { routeName } = navigation.state;
       let iconName;
       if (routeName === 'Home') {

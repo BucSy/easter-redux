@@ -1,8 +1,9 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import { PureComponent } from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import Sound from 'react-native-sound';
 
-var whoosh = new Sound('bottle.mp3', Sound.MAIN_BUNDLE);
+var whoosh = new Sound('bottle.mp3', Sound.MAIN_BUNDLE, err => err);
 
 export default class Bucket extends PureComponent {
 

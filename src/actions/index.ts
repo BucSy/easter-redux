@@ -14,56 +14,56 @@ import {
     SET_ERROR_TO_NULL
  } from './types';
 
-export const getData = (_data) => {
+export const getData = (_data: Array<Object>) => {
     return {
         type: GETDATA,
         payload: _data
     };
 }
 
-export const getFavData = (_data) => {
+export const getFavData = (_data: Array<Object>) => {
     return {
         type: FAVDATA,
         payload: _data
     };
 }
 
-export const newFavData = (_data) => {
+export const newFavData = (_data: string) => {
     return {
         type: NEW_FAVDATA,
         payload: _data
     };
 }
 
-export const deleteFavData = (_data) => {
+export const deleteFavData = (_data: number) => {
     return {
         type: DEL_FAVDATA,
         payload: _data
     };
 }
 
-export const setArticleText = (_articleText) => {
+export const setArticleText = (_articleText: string) => {
     return {
         type: SET_ARTICLE_TEXT,
         payload: _articleText,
     };
 }
 
-export const setArticleKateg = (_articleKateg) => {
+export const setArticleKateg = (_articleKateg: string) => {
     return {
         type: SET_ARTICLE_KATEG,
         payload: _articleKateg,
     };
 }
 
-export const setSelectedItem = (_selectedItem) => {
+export const setSelectedItem = (_selectedItem: string) => {
     return {
         type: ITEM_SELECTED,
         payload: _selectedItem
     };
 }
 
-export const sendDataToSrv = (_msgType, _msg) => {
+export const sendDataToSrv = (_msgType: string, _msg: string) => {
     return{
         type: SEND_DATA_REQUEST,
         msgType: _msgType,
@@ -71,14 +71,14 @@ export const sendDataToSrv = (_msgType, _msg) => {
     };
 }
 
-export const setMsgType = (msgType,) => {
+export const setMsgType = (msgType: string) => {
     return{
         type: SET_MSG_TYPE,
         _msgType: msgType,
     };
 }
 
-export const setMsgText = (msgText) => {
+export const setMsgText = (msgText: string) => {
     return{
         type: SET_MSG_TEXT,
         _msgText: msgText

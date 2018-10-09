@@ -3,14 +3,14 @@ import axios from "axios";
 import { SEND_DATA_REQUEST, SEND_DATA_SUCCESS, SEND_DATA_FAILURE, FAVDATA, DEL_FAVDATA } from '../actions/types';
 import { AsyncStorage } from 'react-native';
 
-function sendData(type, text) {
+function sendData(type: string, text: string) {
   axios.post('https://formcarry.com/s/GJQV7IePI18',
   {message: text, msgtype: type},
   {headers: {"Accept": "application/json"}},
   );
 }
 
-function* sendDataToSrv (action) {
+function* sendDataToSrv (action: any) {
   if (action.msgType === null) {
     yield put({ type: SEND_DATA_FAILURE, payload: "Kérlek adj meg üzenet típust!"});
   } else if (action.msg === null) {
@@ -34,10 +34,10 @@ function* getFavouriteDataAtStart() {
   yield put({ type: FAVDATA, payload: items})
 }
 
-function* deleteData(action) {
+function* deleteData(action: any) {
   yield AsyncStorage
           .getItem('key')
-          .then(favs => {
+          .then((favs: any) => {
               favs = favs === null ? [] : JSON.parse(favs)
               favs.splice(action.payload, 1);
               AsyncStorage.setItem('key', JSON.stringify(favs))

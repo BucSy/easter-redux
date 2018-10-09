@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, ListItem, AsyncStorage, StyleSheet, ScrollView, TouchableOpacity, Share } from 'react-native';
+import { View, Text, FlatList, AsyncStorage, StyleSheet, ScrollView, TouchableOpacity, Share } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { getFavData, deleteFavData } from '../actions/index';
 import { connect } from 'react-redux';
+import { dataState } from '../reducers/dataReducer';
 
-class Favourites extends Component {
+interface FavouritesProps {
+    data: dataState;
+    deleteFavData: typeof deleteFavData;
+}
+
+class Favourites extends Component<FavouritesProps> {
     
-    shareItemFromList(item) {
+    shareItemFromList(item: string) {
         Share.share({
             message: item,
             title: 'Locsolóvers'
@@ -101,7 +107,7 @@ const styles = StyleSheet.create({
       },
 });
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
     return {
       data: state.dataR,
     };

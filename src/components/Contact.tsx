@@ -1,10 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import { View, Text, Picker, TextInput, ActivityIndicator, Modal, TouchableHighlight } from 'react-native';
 import { Button } from 'react-native-elements';
 import { sendDataToSrv, setMsgText, setMsgType, setErrorNull } from '../actions/index';
 import { connect } from 'react-redux';
+import { sendState } from '../reducers/sendReducer';
 
-class Contact extends Component {
+interface ContactProps {
+    send: sendState;
+    setErrorNull: typeof setErrorNull;
+    setMsgText: typeof setMsgText;
+    setMsgType: typeof setMsgType;
+    sendDataToSrv: typeof sendDataToSrv;
+}
+
+class Contact extends Component<ContactProps> {
     render() {
         return(
             <View style={{backgroundColor: 'rgba(255,255,255,1.0)', flex: 1 }}>
@@ -31,7 +41,7 @@ class Contact extends Component {
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Picker
                     selectedValue={this.props.send.msgType}
-                    onValueChange={(itemValue) => this.props.setMsgType(itemValue)}
+                    onValueChange={(itemValue: string) => this.props.setMsgType(itemValue)}
                     enabled={this.props.send.editable}
                     style={{width: "75%"}}
                 >
@@ -68,7 +78,7 @@ class Contact extends Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
     return {
       send: state.send
     };

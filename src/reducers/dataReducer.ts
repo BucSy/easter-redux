@@ -6,12 +6,17 @@ import {
  } from '../actions/types';
 import Immutable, { isImmutable } from 'seamless-immutable';
 
+export interface dataState {
+    readonly data: { kateg: string, vers: string }[]
+    readonly favData: string[]
+}
+
 const initalizeState = Immutable({
     data: [],
     favData: [],
 });
 
-export default (state = initalizeState, action) => {
+export default (state = initalizeState, action: {type: string, payload: any}) => {
     switch(action.type) {
         case GETDATA:
             return {...state, data: [...action.payload]};

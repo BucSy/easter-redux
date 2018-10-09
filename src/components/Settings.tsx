@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { AsyncStorage, View } from 'react-native';
+import { View } from 'react-native';
 import { Container, Left, Content, List, ListItem, Text, Radio, Right } from 'native-base'; 
 import { connect } from 'react-redux';
 import { setSelectedItem } from '../actions/index';
+import { selectedItemState } from '../reducers/selectedItemReducer';
 
-class Settings extends Component {
+interface SettingsProps {
+    items: selectedItemState;
+    setSelectedItem: typeof setSelectedItem;
+}
+
+class Settings extends Component<SettingsProps> {
 
     render() {
         return(
@@ -49,7 +55,7 @@ class Settings extends Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
     return {
       items: state.items
     };
