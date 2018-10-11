@@ -1,6 +1,6 @@
 import { takeEvery, put, call, all } from "redux-saga/effects";
 import axios from "axios";
-import { SEND_DATA_REQUEST, SEND_DATA_SUCCESS, SEND_DATA_FAILURE, FAVDATA, DEL_FAVDATA } from '../actions/types';
+import { SEND_DATA_REQUEST, GET_LOCKER_DATA, SEND_DATA_SUCCESS, SEND_DATA_FAILURE, FAVDATA, DEL_FAVDATA } from '../actions/types';
 import { AsyncStorage } from 'react-native';
 
 function sendData(type: string, text: string) {
@@ -44,6 +44,15 @@ function* deleteData(action: any) {
           });
 }
 
+function getLocker() {
+  
+}
+
+function* getLockerDataAtStart() {
+  const _lockerData = yield axios.get("https://api.backend.airspace.travel/prices");
+  yield put({ type: GET_LOCKER_DATA, payload: _lockerData.data});
+}
+
 function* deleteFavItemFromList() {
   yield takeEvery(DEL_FAVDATA, deleteData)
 }
@@ -53,5 +62,6 @@ export default function* rootSaga() {
     dataSaga(),
     getFavouriteDataAtStart(),
     deleteFavItemFromList(),
+    getLockerDataAtStart(),
   ]) 
 };

@@ -24,6 +24,7 @@
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "redux-seamless-immutable": "^0.4.0",
+    "reselect": "^4.0.0",
     "seamless-immutable": "^7.1.4"
   },
   "devDependencies": {

@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
   StatusBar,
   ScrollView,
   ImageBackground,
   AsyncStorage,
   Share
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 import { getData, setArticleText, setArticleKateg, getFavData, newFavData } from '../actions/index';
 import { connect } from 'react-redux';

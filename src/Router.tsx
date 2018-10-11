@@ -10,6 +10,7 @@ import Bucket from './components/Bucket';
 import Favourites from './components/Favourites';
 import Contact from './components/Contact';
 import Home from './components/Home';
+import Lockers from './components/Lockers';
 
 interface tabBar {
   focused: boolean;
@@ -22,6 +23,7 @@ const BaseNavigation = TabNavigator({
   Favourites: { screen: Favourites },
   Bucket: { screen: Bucket },
   Contact: { screen: Contact },
+  Lockers: { screen: Lockers }
 },
 {
   navigationOptions: ({ navigation }): any => ({
@@ -43,6 +45,9 @@ const BaseNavigation = TabNavigator({
       } else if (routeName === 'Contact') {
         iconName = `ios-contact`;
         return <Ionicons name={iconName} size={25} color={tintColor} />;
+      } else if (routeName === 'Lockers') {
+        iconName = `lock-open`;
+        return <Entypo name={iconName} size={25} color={tintColor} />;
       }
     },
   }),

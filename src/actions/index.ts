@@ -6,12 +6,12 @@ import {
     SET_ARTICLE_TEXT,
     SET_ARTICLE_KATEG,
     ITEM_SELECTED,
-    SEND_DATA_SUCCESS,
     SEND_DATA_REQUEST,
-    SEND_DATA_FAILURE,
     SET_MSG_TYPE,
     SET_MSG_TEXT,
-    SET_ERROR_TO_NULL
+    SET_ERROR_TO_NULL,
+    SHOW_SORT_BY_PRICE,
+    SHOW_SORT_BY_SIZE
  } from './types';
 
 export const getData = (_data: Array<Object>) => {
@@ -88,5 +88,17 @@ export const setMsgText = (msgText: string) => {
 export const setErrorNull = () => {
     return {
         type: SET_ERROR_TO_NULL
+    }
+}
+
+export const showSortByPrice = () => {
+    return {
+        type: SHOW_SORT_BY_PRICE
+    }
+}
+
+export const showSortBySize = () => {
+    return {
+        type: SHOW_SORT_BY_SIZE
     }
 }
