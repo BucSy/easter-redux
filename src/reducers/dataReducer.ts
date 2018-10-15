@@ -44,18 +44,18 @@ function dynamicSort(property: string) {
     }
 }
 
-export default (state = initalizeState, action: {type: string, payload: any}) => {
+export default (state = initalizeState, action: {type: string, poemData: any, newFavouriteData: any, delFavouriteData: any, favouriteData: any, payload: any}) => {
     switch(action.type) {
         case GETDATA:
-            return {...state, data: [...action.payload]};
+            return {...state, data: [...action.poemData]};
         case FAVDATA:
-            return {...state, favData: [...action.payload]};
+            return {...state, favData: [...action.favouriteData]};
         case NEW_FAVDATA:
-            return {...state, favData: [...state.favData, action.payload]};
+            return {...state, favData: [...state.favData, action.newFavouriteData]};
         case DEL_FAVDATA:
             return {...state, favData: [
-                ...state.favData.slice(0, action.payload),
-                ...state.favData.slice(action.payload + 1)
+                ...state.favData.slice(0, action.delFavouriteData),
+                ...state.favData.slice(action.delFavouriteData + 1)
             ]}
         case GET_LOCKER_DATA:
             return {...state, lockerData: [...action.payload]};

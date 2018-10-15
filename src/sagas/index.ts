@@ -31,7 +31,7 @@ function* dataSaga () {
 
 function* getFavouriteDataAtStart() {
   var items = yield AsyncStorage.getItem('key').then(JSON.parse);
-  yield put({ type: FAVDATA, payload: items})
+  yield put({ type: FAVDATA, favouriteData: items})
 }
 
 function* deleteData(action: any) {
@@ -42,10 +42,6 @@ function* deleteData(action: any) {
               favs.splice(action.payload, 1);
               AsyncStorage.setItem('key', JSON.stringify(favs))
           });
-}
-
-function getLocker() {
-  
 }
 
 function* getLockerDataAtStart() {

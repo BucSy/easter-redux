@@ -2,7 +2,7 @@ import {
     SET_ARTICLE_TEXT,
     SET_ARTICLE_KATEG
  } from '../actions/types';
-import Immutable, { isImmutable } from 'seamless-immutable';
+import Immutable from 'seamless-immutable';
 
 export interface articleState {
     readonly articleText: string
@@ -14,12 +14,12 @@ const initalizeState: articleState = Immutable({
     articleKateg: '-'
 });
 
-export default (state = initalizeState, action: {type: string, payload: string}) => {
+export default (state = initalizeState, action: {type: string, articleText: string, articleKateg: string}) => {
     switch(action.type) {
         case SET_ARTICLE_TEXT:
-            return {...state, articleText: action.payload}
+            return {...state, articleText: action.articleText}
         case SET_ARTICLE_KATEG:
-            return {...state, articleKateg: action.payload}
+            return {...state, articleKateg: action.articleKateg}
         default:
             return state
     }

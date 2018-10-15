@@ -14,74 +14,74 @@ import {
     SHOW_SORT_BY_SIZE
  } from './types';
 
-export const getData = (_data: Array<Object>) => {
+export const getData = (poemData: any) => {
     return {
         type: GETDATA,
-        payload: _data
+        poemData
     };
 }
 
-export const getFavData = (_data: Array<Object>) => {
+export const getFavData = (favouriteData: any) => {
     return {
         type: FAVDATA,
-        payload: _data
+        favouriteData
     };
 }
 
-export const newFavData = (_data: string) => {
+export const newFavData = (newFavouriteData: string) => {
     return {
         type: NEW_FAVDATA,
-        payload: _data
+        newFavouriteData
     };
 }
 
-export const deleteFavData = (_data: number) => {
+export const deleteFavData = (delFavouriteData: number) => {
     return {
         type: DEL_FAVDATA,
-        payload: _data
+        delFavouriteData
     };
 }
 
-export const setArticleText = (_articleText: string) => {
+export const setArticleText = (articleText: string) => {
     return {
         type: SET_ARTICLE_TEXT,
-        payload: _articleText,
+        articleText,
     };
 }
 
-export const setArticleKateg = (_articleKateg: string) => {
+export const setArticleKateg = (articleKateg: string) => {
     return {
         type: SET_ARTICLE_KATEG,
-        payload: _articleKateg,
+        articleKateg,
     };
 }
 
-export const setSelectedItem = (_selectedItem: string) => {
+export const setSelectedItem = (selectedItem: string) => {
     return {
         type: ITEM_SELECTED,
-        payload: _selectedItem
+        selectedItem
     };
 }
 
-export const sendDataToSrv = (_msgType: string, _msg: string) => {
+export const sendDataToSrv = (msgType: string, msgText: string) => {
     return{
         type: SEND_DATA_REQUEST,
-        msgType: _msgType,
-        msg: _msg
+        msgType,
+        msgText
     };
 }
 
 export const setMsgType = (msgType: string) => {
     return{
         type: SET_MSG_TYPE,
-        _msgType: msgType,
+        msgType,
     };
 }
 
 export const setMsgText = (msgText: string) => {
     return{
         type: SET_MSG_TEXT,
-        _msgText: msgText
+        msgText
     };
 }
 

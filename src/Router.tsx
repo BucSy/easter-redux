@@ -1,15 +1,13 @@
-import { TabNavigator, TabBarBottom, NavigationScreenProps, TabNavigatorConfig } from 'react-navigation';
+import { TabNavigator, TabBarBottom } from 'react-navigation';
 import React from 'react';
-import { Component } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Foundation from 'react-native-vector-icons/Foundation'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Settings from './components/Settings';
 import Bucket from './components/Bucket';
 import Favourites from './components/Favourites';
 import Contact from './components/Contact';
-import Home from './components/Home';
+import Home from './components/Home/';
 import Lockers from './components/Lockers';
 
 interface tabBar {

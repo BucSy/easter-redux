@@ -2,9 +2,9 @@ import React from 'react';
 import { Component } from 'react';
 import { View, Text, Button, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { selectorBySize, selectorByPrice } from '../reducers/dataReducer';
-import { showSortByPrice, showSortBySize } from '../actions';
-import { selectedItemState } from '../reducers/selectedItemReducer';
+import { selectorBySize, selectorByPrice } from '../../reducers/dataReducer';
+import { showSortByPrice, showSortBySize } from '../../actions';
+import { selectedItemState } from '../../reducers/selectedItemReducer';
 
 interface LockersProps {
     showSortBySize: typeof showSortBySize;
