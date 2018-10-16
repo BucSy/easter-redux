@@ -16,3 +16,6 @@ export const GET_LOCKER_DATA_SUCCESS: string = "GET_LOCKER_DATA_SUCCESS";
 export const GET_LOCKER_DATA_FAILURE: string = "GET_LOCKER_DATA_FAILURE"
 export const SHOW_SORT_BY_SIZE: string = "SHOW_SORT_BY_SIZE";
 export const SHOW_SORT_BY_PRICE: string = "SHOW_SORT_BY_PRICE";
+export const FAVOURITE_DATA: string = "FAVOURITE_DATA";
+export const NEW_POEM: string = "NEW_POEM";
+export const POEM_DATA: string = "POEM_DATA";

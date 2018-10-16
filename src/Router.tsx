@@ -3,12 +3,12 @@ import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
-import Settings from './components/Settings';
-import Bucket from './components/Bucket';
-import Favourites from './components/Favourites';
-import Contact from './components/Contact';
-import Home from './components/Home/';
-import Lockers from './components/Lockers';
+import Settings from './containers/Settings';
+import Bucket from './containers/Bucket';
+import Favourites from './containers/Favourites';
+import Contact from './containers/Contact';
+import Home from './containers/Home';
+import Lockers from './containers/Lockers';
 
 interface tabBar {
   focused: boolean;
