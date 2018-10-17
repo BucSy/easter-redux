@@ -25,14 +25,14 @@ function* sendData(type: string, text: string) {
   return apiRes;
 }
   
-export function* sendDataToForm (action: any) {
-    if (action.msgType === null) {
+export function* sendDataToForm (action: { type: string, msgType: string, msgText: string }) {
+    if (action.msgType === null || action.msgType === '') {
       yield put({ type: SEND_DATA_FAILURE, payload: "Kérlek adj meg üzenet típust!"});
-    } else if (action.msg === null) {
+    } else if (action.msgText === null || action.msgText === '') {
       yield put({ type: SEND_DATA_FAILURE, payload: "Kérlek ne hagyd üresen az üzenet mezőt!"});
     } else {
       try {
-        yield call(sendData, action.msgType, action.msg);
+        yield call(sendData, action.msgType, action.msgText);
         yield put({ type: SEND_DATA_SUCCESS })
       } catch (e) {
         yield put({ type: SEND_DATA_FAILURE })

@@ -31,8 +31,8 @@ interface HomeProps {
 }
 
 class Home extends Component<HomeProps> {
-
-  componentWillMount() { 
+  constructor(props: any) {
+    super(props);
     AsyncStorage.setItem('itemSelected', 'itemOne');
     this.props.setPoemData();
     this.props.favouriteData();
