@@ -42,4 +42,4 @@ describe("Data actions", () => {
         }
         expect(actions.deleteFavData(delFavouriteData)).toEqual(delFavouriteDataAction);
     });
-})
+});
