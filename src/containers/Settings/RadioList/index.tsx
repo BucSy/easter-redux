@@ -14,7 +14,7 @@ class RadioList extends Component<RadioListProps> {
     render() {
         return(
             <Content>
-                <Text style={{ fontFamily: 'Lobster-Regular', fontSize: 25, alignSelf: 'center', color: '#E53935' }}>Kategóriák</Text>
+                <Text style={{ fontSize: 25, alignSelf: 'center', color: '#E53935' }}>Kategóriák</Text>
                 <ListItem onPress={() => {this.props.setSelectedItem('itemOne')}}>
                     <Left>
                         <Text>Összes</Text>

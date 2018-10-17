@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
         fontSize: 15,
       },
       versBottom: {
-        height: 45,
+        height: 55,
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'rgba(255,255,255,1.0)',

@@ -54,7 +54,7 @@ class HomePoem extends Component<HomePoemProps> {
                         backgroundColor: '#2196F3',
                         borderRadius: 5,
                         borderWidth: 0,
-                        height: 35
+                        height: 45
                     }} />
                     </View>
                     <View style={styles.LeftIcon}>
@@ -65,7 +65,7 @@ class HomePoem extends Component<HomePoemProps> {
                         backgroundColor: '#E53935',
                         borderRadius: 5,
                         borderWidth: 0,
-                        height: 35,
+                        height: 45,
                     }} />
                     </View>
                 </View>
