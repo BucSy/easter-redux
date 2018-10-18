@@ -10,7 +10,8 @@
     "@types/react-native-vector-icons": "^4.6.4",
     "@types/react-navigation": "^2.0.24",
     "@types/react-redux": "^6.0.9",
-    "@types/seamless-immutable": "^7.1.2",
+    "@types/remote-redux-devtools": "^0.5.3",
+    "@types/seamless-immutable": "^7.1.3",
     "axios": "^0.18.0",
     "babel-preset-es2015": "^6.24.1",
     "native-base": "^2.8.0",
@@ -45,6 +46,7 @@
     "jest": "^22.4.4",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "^16.2.0",
+    "remote-redux-devtools": "^0.5.13",
     "ts-jest": "^23.10.4",
     "typescript": "^3.1.1"
   },
