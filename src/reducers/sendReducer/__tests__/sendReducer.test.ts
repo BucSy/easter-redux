@@ -8,7 +8,7 @@ describe("Send reducer test", () => {
             .toEqual({
                 loading: true,
                 error: false,
-                errorText: null,
+                errorText: "",
                 editable: false,
                 msgText: "",
                 msgType: "hiba"
@@ -21,7 +21,7 @@ describe("Send reducer test", () => {
             .toEqual({
                 loading: false,
                 error: false,
-                errorText: null,
+                errorText: "",
                 editable: true,
                 msgText: "",
                 msgType: "hiba"
@@ -47,7 +47,7 @@ describe("Send reducer test", () => {
             .toEqual({
                 loading: false,
                 error: false,
-                errorText: null,
+                errorText: "",
                 editable: true,
                 msgText: "",
                 msgType: "something"
@@ -60,7 +60,7 @@ describe("Send reducer test", () => {
             .toEqual({
                 loading: false,
                 error: false,
-                errorText: null,
+                errorText: "",
                 editable: true,
                 msgText: "something",
                 msgType: "hiba"
@@ -73,7 +73,7 @@ describe("Send reducer test", () => {
             .toEqual({
                 loading: false,
                 error: false,
-                errorText: null,
+                errorText: "",
                 editable: true,
                 msgText: "",
                 msgType: "hiba"

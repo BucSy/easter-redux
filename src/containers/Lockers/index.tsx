@@ -7,7 +7,6 @@ import { lockerData } from '../../actions';
 import { showSortByPrice, showSortBySize } from '../../reducers/selectedItemReducer/actions'
 import { selectedItemState } from '../../reducers/selectedItemReducer';
 import { styles } from './styles';
-import { dataState } from '../../reducers/dataReducer';
 
 interface LockersProps {
     showSortBySize: typeof showSortBySize;
@@ -78,7 +77,7 @@ class Lockers extends Component<LockersProps> {
     }
 }
 
-function mapStateToProps(state: {dataR: dataState, items: selectedItemState}) {
+function mapStateToProps(state: any) {
     return {
       data: state.dataR,
       itemBySize: selectorBySize(state),

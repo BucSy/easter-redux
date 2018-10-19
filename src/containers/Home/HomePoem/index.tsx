@@ -74,7 +74,7 @@ class HomePoem extends Component<HomePoemProps> {
     }
 }
 
-function mapStateToProps(state: {article: articleState}) {
+function mapStateToProps(state: any) {
     return {
         article: state.article
     }

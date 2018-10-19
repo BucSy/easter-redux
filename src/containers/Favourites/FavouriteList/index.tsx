@@ -58,7 +58,7 @@ class FavouriteList extends Component<FavouriteListProps> {
     }
 }
 
-function mapStateToProps(state: {dataR: dataState}) {
+function mapStateToProps(state: any) {
     return {
       data: state.dataR,
     };

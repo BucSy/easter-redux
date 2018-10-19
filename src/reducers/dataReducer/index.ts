@@ -8,36 +8,42 @@ import {
     DEL_FAVDATA,
     GET_LOCKER_DATA_SUCCESS,
  } from '../../actions/types';
-import Immutable from 'seamless-immutable';
+import produce from 'immer';
 
 export interface dataState {
-    readonly data: poemDataType[]
-    readonly favData: string[],
-    readonly lockerData: lockerDataType[],
+    data: poemDataType[]
+    favData: string[],
+    lockerData: lockerDataType[],
 }
 
-const initalizeState: dataState = Immutable({
+const initalizeState: dataState = {
     data: [],
     favData: [],
     lockerData: [],
-});
+};
 
-export default (state = initalizeState, action: {type: string, poemData: poemDataType[], newFavouriteData: string, delFavouriteData: number, favouriteData: string[], payload: lockerDataType[]}) => {
-    switch(action.type) {
-        case GETDATA:
-            return {...state, data: [...action.poemData]};
-        case FAVDATA:
-            return {...state, favData: [...action.favouriteData]};
-        case NEW_FAVDATA:
-            return {...state, favData: [...state.favData, action.newFavouriteData]};
-        case DEL_FAVDATA:
-            return {...state, favData: [
-                ...state.favData.slice(0, action.delFavouriteData),
-                ...state.favData.slice(action.delFavouriteData + 1)
-            ]}
-        case GET_LOCKER_DATA_SUCCESS:
-            return {...state, lockerData: [...action.payload]};
-        default:
-            return state;
-    }
-}
+export default (state = initalizeState, action: {type: string, poemData: poemDataType[], newFavouriteData: string, delFavouriteData: number, favouriteData: string[], payload: lockerDataType[]}) => 
+    produce(state, draft => {
+        switch(action.type) {
+            case GETDATA:
+                draft.data.push(...action.poemData);
+                break;
+            case FAVDATA:
+                draft.favData.push(...action.favouriteData);
+                break;
+            case NEW_FAVDATA:
+                draft.favData.push(action.newFavouriteData);
+                break;
+            case DEL_FAVDATA:
+                return {...state, favData: [
+                    ...state.favData.slice(0, action.delFavouriteData),
+                    ...state.favData.slice(action.delFavouriteData + 1)
+                ]}
+            case GET_LOCKER_DATA_SUCCESS:
+                draft.lockerData.push(...action.payload);
+                break;
+            default:
+                return state;
+        }
+})
+

@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux-seamless-immutable';
 import dataReducer from './dataReducer';
 import articleReducer from './articleReducer';
 import selectedItemReducer from './selectedItemReducer';
 import sendReducer from './sendReducer';
+import { combineReducers } from 'redux';
 
 export default combineReducers({
   state: (state = {}) => state,
