@@ -74,7 +74,7 @@ class Home extends Component<HomeProps> {
   }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: {dataR: dataState, article: articleState, items: selectedItemState}) {
   return {
     data: state.dataR,
     article: state.article,

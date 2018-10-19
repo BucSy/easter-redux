@@ -2,10 +2,20 @@ import { put, call } from 'redux-saga/effects';
 import { AsyncStorage } from 'react-native';
 import { FAVDATA, FAVOURITE_DATA_NULL } from '../actions/types';
 
+export function* favouriteAsyncStorage() {
+    try {
+        let favourites = yield call(AsyncStorage.getItem, 'key');
+        let fav = JSON.parse(favourites);
+        return fav;
+    } catch(e) {
+        console.log(e);
+    }
+}
+
 export function* favouriteData() {
-        var items = yield call(AsyncStorage.getItem, 'key');
+        let items = yield call(favouriteAsyncStorage);
         if(items !== null || items !== undefined) {
-            yield put({ type: FAVDATA, favouriteData: JSON.parse(items)});
+            yield put({ type: FAVDATA, favouriteData: items});
         } else {
             yield put({ type: FAVOURITE_DATA_NULL })
         }

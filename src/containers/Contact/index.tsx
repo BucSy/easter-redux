@@ -25,7 +25,7 @@ class Contact extends Component<ContactProps> {
     }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: {send: sendState}) {
     return {
       send: state.send
     };

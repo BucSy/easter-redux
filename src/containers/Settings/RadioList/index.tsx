@@ -52,7 +52,7 @@ class RadioList extends Component<RadioListProps> {
     }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: {items: selectedItemState}) {
     return {
       items: state.items
     };

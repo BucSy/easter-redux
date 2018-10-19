@@ -124,3 +124,5 @@ export const poemData: {id: number, kateg: string, vers: string}[] =
   { id: 36,
     kateg: 'Nepies',
     vers: 'Húsvét napja csupa öröm,\nA sok kislányt megöntözöm.\nHideg kútvíz szoknyájukra,\nPiros tojás a markunkba!' } ]
+
+    
